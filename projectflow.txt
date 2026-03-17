@@ -1,0 +1,33 @@
+# Agenda 
+
+BUILDING PIPELINE 
+1. create and clone git repo (add exp)
+2. add src file along with all components(run them individually)
+3. add data , model , rport in .giitignore file 
+4. git command like commen , push /
+
+
+
+
+#logging
+logging is a inbuild module 
+
+logger(object)----------------
+               |        |       
+               |        |
+            handler   formater (in which forma u want [date -time - "  " - message ])
+            |
+         -------
+         |     |
+         |    file (it create .log file and we can check every thing)
+    console (every thing show in console like debugging)
+
+
+# level of logger
+1.debuge
+2.info
+3.warning
+4.error
+5.critical 
+
+    
