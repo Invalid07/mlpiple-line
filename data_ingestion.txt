@@ -1,0 +1,39 @@
+# explaining the step of data_ingestion file 
+
+importing all necessary libary 
+
+craeting dir with nam of log 
+os.makedirs(log_dir, exist_ok=True) --- this code if logs dir is create than dont make other wise make 
+
+--
+logger = logging.getLogger('DataIngestion') -- name of the looger u can give any 
+
+--
+than add handler to handle the file (FILE HANDER HELP TO STORE LOGS IN FILE )
+
+--
+this line is responsible for put data_ingestion inside loger file 
+file_path = os.path.join(log_dir, 'data_ingestion.log') 
+
+# formater help u display message the the method wich u chose
+
+# flow for the data 
+1. load_data  only loading the data for url 
+2.preprocess_data :
+    droping the few columns 
+    renaming the columns 
+3.save_data: -- it take 2 parameters
+    making dir :  os.path.join(data_path, 'raw')
+    making train and test file--
+    train_data.to_csv(os.path.join(raw_data_path, "train.csv"), index=False)
+    test_data.to_csv(os.path.join(raw_data_path, "test.csv"), index=False)
+
+
+
+4.final:
+   test_size = 0.2
+url: data_path = 'https://raw.githubusercontent.com/vikashishere/Datasets/refs/heads/main/spam.csv'
+load_data: df = load_data(data_url=data_path)
+processing: final_df = preprocess_data(df)
+TRAIN& TEST : train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=2)
+SAVE : save_data(train_data, test_data, data_path='./data')
